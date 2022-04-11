@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./style/mainscreen.css">
+    <script type="text/javascript" src="./script.js" > </script>
+    <title>Tela Inicial Operador</title>
+</head>
+<body>
+    <section>
+        <div class="topbar">
+            <fieldlist>
+                <img id="img1" src="./imgs/imagem_modificada_letra_branca 1.png">
+                <a class="leave" href="./login.html">Sair</a>
+            <img src="./imgs/Icone Sair.png" alt="" class="leaveicon">
+            </fieldlist>
+            </div>
+        <div>
+        <div class="container">
+            <div class="searchbar">
+                <label >Pesquisar por...</label> <br>
+            </div>
+            <div>
+                <input style="color: rgb(109, 102, 102);" class="placeholder1" placeholder="Digite...">
+            </div>
+            <div class="month">
+                <label for="month" >Mês</label><br>
+                </div>
+                <div>
+                <select name="month" id="month">
+                    <option>Selecione...</option>
+                    <option value="Janeiro">Janeiro</option>
+                    <option value="Fevereiro">Fevereiro</option>
+                    <option value="Março">Março</option>
+                    <option value="Abril">Abril</option>
+                    <option value="Maio">Maio</option>
+                    <option value="Junho">Junho</option>
+                    <option value="Julho">Julho</option>
+                    <option value="Agosto">Agosto</option>
+                    <option value="Setembro">Setembro</option>
+                    <option value="Outubro">Outubro</option>
+                    <option value="Novembro">Novembro</option>
+                    <option value="Dezembro">Dezembro</option>
+                </select>
+
+            </div>
+            <div class="day">
+                <label id="day1">Dia</label>
+                <div>
+                <input placeholder="De..." type="number" min="1" max="31" name="firstday" id="firstday">
+                </div>
+                <label id="trc">--</label>
+                <input placeholder="Até..." type="number" min="1" max="31" name="secondday" id="secondday">
+                <button id="search">Pesquisar</button>
+
+            </div> 
+            
+            </div>
+        </div>
+    <img class="imglogo" src="./imgs/Logo principal.png">
+    <div>
+        <table class="maintable1">
+            <tr>
+                <th>Linha</th>
+                <th>Nr. Pedido</th>
+                <th>Produtos</th>
+                <th>Nome Cliente</th>
+                <th>Endereço</th>
+                <th>Cidade</th>
+                <th>Entregador</th>
+                <th>Status Pedido</th>
+                <th>Mês</th>
+                <th>Dia</th>
+                
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>12345</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+        </table>
+
+    </div>
+
+    <img class="call" src="./imgs/Chamada.png">
+    
+    <footer>
+        <div class="footerbttns">
+            <form>
+            <button onclick="ScreenHome()" type="button"   class="mainscrn">Tela inicial</button>
+            </form>
+            <form >
+            <button onclick="SignupClient()" type="button"  class="signupclt">Cadastro - Cliente</button>
+            </form>
+            <form>
+            <button  onclick="Order()" type="button" class="rqst">Pedido</button>
+            </form>
+            <form>
+            <button onclick="Payment()" type="button"  class="payiment">Pagamento</button>
+            </form>
+            <form>
+            <button onclick="Delivery()" type="button"  class="dlvr">Entregadores</button>
+            </form>
+            <form>
+            <button onclick="OrderConfirmation()" type="button" class="confirmdlvr">Confirmação do Pedido</button>
+            </form>
+        </div>
+    </footer>
+    
+</body>
+</html>

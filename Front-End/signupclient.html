@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./style/signupclient.css">
+    <script type="text/javascript" src="./script.js" > </script>
+    <title>Cadastro de Clientes</title>
+</head>
+<body>
+    <section>
+        <div class="topbar">
+            <fieldlist>
+                <img id="img1" src="./imgs/imagem_modificada_letra_branca 1.png">
+            <a class="leave" href="./login.html">Sair</a>
+            <img src="./imgs/Icone Sair.png" alt="" class="leaveicon">
+            </fieldlist>
+            </div>
+        <div>
+        
+
+
+    <img class="call" src="./imgs/Chamada.png">
+    <div class="container1">
+        <form class="clientform">
+            <fieldset class="formsignup">
+                <div>
+                    <label class="tittleform">Cadastro de Clientes</label>
+                <button class="bttns" id="bttn1">PESSOA FÍSICA</button>
+                <button class="bttns" id="bttn2">PESSOA JURÍDICA</button>
+                </div>
+                <div class="div1">
+                    <label id="label1">Nome Completo</label>
+                    <input placeholder="Digite..." type="text" name="nomecompleto" id="nomecompleto">
+                    <label id="label2">CPF</label>
+                    <input placeholder="000.000.000-00" type="text" name="cpf" id="cpf">
+                </div>
+                <div class="div2">
+                    <label id="label3">CEP</label>
+                    <input type="text" name="cep" id="cep" placeholder="00000.000">
+                    <label id="label4">Endereço</label>
+                    <input type="text" name="endereço" id="endereço" placeholder="Digite...">
+                    <label id="label5">Número</label>
+                    <input type="number" name="numero" id="numero" placeholder="Digite...">
+                </div>
+                <div class="div3">
+                    <label id="label6">Complemento</label>
+                    <input type="text" name="complemento" id="complemento" placeholder="Digite...">
+                </div>
+                <div id="div4">
+                    <label id="label7">Bairro</label>
+                    <input type="text" name="bairro" id="bairro" placeholder="Digite..." >
+                    <label id="label8">Cidade</label>
+                    <select name="cidade" id="cidade">
+                        <option>Selecione...</option>
+                    </select>
+                    <label id="label9">Estado</label>
+                    <select name="estado" id="estado">
+                        <option>Selecione...</option>
+                    </select>
+                </div>
+                <div class="div5">
+                <label id="label10">Histórico de Pedidos</label>
+                    <select name="historicopedidos" id="historicopedidos">
+                        <option>Histórico de Pedidos</option>
+                    </select>
+                    <label id="label11">Telefone</label>
+                    <input type="text" name="telefone" id="telefone" placeholder="XX XXXXX-XXXX">
+                    <label id="label12">Email</label>
+                    <input type="text" name="email" id="email" placeholder="Digite...">
+                </div>
+                <div>
+                    <button class="bttns" id="bttn3">CANCELAR</button>
+                    <button class="bttns" id="bttn4">SALVAR</button>
+                    </div>
+                <div>
+               
+            </fieldset>
+            
+        </form>
+    
+        <footer>
+            <div class="footerbttns">
+                <form>
+                <button onclick="ScreenHome()" type="button"   class="mainscrn">Tela inicial</button>
+                </form>
+                <form >
+                <button onclick="SignupClient()" type="button"  class="signupclt">Cadastro - Cliente</button>
+                </form>
+                <form>
+                <button  onclick="Order()" type="button" class="rqst">Pedido</button>
+                </form>
+                <form>
+                <button onclick="Payment()" type="button"  class="payiment">Pagamento</button>
+                </form>
+                <form>
+                <button onclick="Delivery()" type="button"  class="dlvr">Entregadores</button>
+                </form>
+                <form>
+                <button onclick="OrderConfirmation()" type="button" class="confirmdlvr">Confirmação do Pedido</button>
+                </form>
+            </div>
+        </footer>
+
+ 
+
+</body>
+</html>

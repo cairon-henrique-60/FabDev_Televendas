@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./style/order.css">
+    <script type="text/javascript" src="./script.js" > </script>
+    <title>Pedidos</title>
+</head>
+<body>
+    <section>
+        <div class="topbar">
+            <fieldlist>
+                <img id="img1" src="./imgs/imagem_modificada_letra_branca 1.png">
+                <a class="leave" href="./login.html">Sair</a>
+            <img src="./imgs/Icone Sair.png" alt="" class="leaveicon">
+            </fieldlist>
+            </div>
+        <div>
+        
+
+
+    <img class="call" src="./imgs/Chamada.png">
+    <div class="container1">
+        <form class="clientform">
+            <fieldset class="ordersignup">
+                    <div>
+                        <label class="tittleform">Pedido</label>
+                    </div>
+                    <div>
+                        <label id="label1">Categoria</label>
+                        <select name="categoria" id="categoria">
+                            <option>Selecione...</option>
+                        </select>
+                        <label id="label2">Produto</label>
+                        <select name="produto" id="produto">
+                            <option>Selecione...</option>
+                        </select>
+                        <button id="bttnadd">Adicionar</button>
+                    </div>
+                    <div class="prices">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td>GLP - VASILHAME</td>
+                                <TD>P13</TD>
+                                <TD>R$98,90</TD>
+                            </tr>
+                            <tr>
+                                <td>KIT - Válvula Gás</td>
+                                <td></td>
+                                <td>R$54,60</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div>
+                        <label id="label3">Valor Total</label>
+                        <input name="total" id="total" type="text">
+                    </div>
+                    <div>
+                        <button class="bttns" id="bttn1">CANCELAR</button>
+                        <button class="bttns" id="bttn2">FINALIZAR PEDIDO</button>
+                        </div>
+                    <div>
+               
+            </fieldset>
+            
+        </form>
+
+    </div>
+    
+    <footer>
+        <div class="footerbttns">
+            <form>
+            <button onclick="ScreenHome()" type="button"   class="mainscrn">Tela inicial</button>
+            </form>
+            <form >
+            <button onclick="SignupClient()" type="button"  class="signupclt">Cadastro - Cliente</button>
+            </form>
+            <form>
+            <button  onclick="Order()" type="button" class="rqst">Pedido</button>
+            </form>
+            <form>
+            <button onclick="Payment()" type="button"  class="payiment">Pagamento</button>
+            </form>
+            <form>
+            <button onclick="Delivery()" type="button"  class="dlvr">Entregadores</button>
+            </form>
+            <form>
+            <button onclick="OrderConfirmation()" type="button" class="confirmdlvr">Confirmação do Pedido</button>
+            </form>
+        </div>
+    </footer>
+    
+</body>
+</html>

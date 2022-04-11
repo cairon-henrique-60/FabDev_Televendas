@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./style/confirmorder.css">
+    <script type="text/javascript" src="./script.js" > </script>
+    <title>Confirmar Pedido</title>
+</head>
+<body>
+    <section>
+        <div class="topbar">
+            <fieldlist>
+                <img id="img1" src="./imgs/imagem_modificada_letra_branca 1.png">
+            <a class="leave" href="./login.html">Sair</a>
+            <img src="./imgs/Icone Sair.png" alt="" class="leaveicon">
+            </fieldlist>
+            </div>
+        <div>
+        
+    
+    
+    <img class="call" src="./imgs/Chamada.png">
+    <div class="container1">
+            <form>
+                <fieldset id="confirmordersignup">
+                    <div>
+                        <label class="tittleform">Pedido</label>
+                        <label id="label1">Nome Cliente</label>
+                        <input id="nomecliente" name="nomecliente" type="text">
+                        <label id="label2">Rua</label>
+                        <input id="rua" name="rua" type="text">
+                        <label id="label3">Número</label>
+                        <input id="numero" name="numero" type="text">
+                        <label id="label4">Bairro</label>
+                        <input id="bairro" name="bairro" type="text">
+                        <label id="label5">Cidade</label>
+                        <input id="cidade" name="cidade" type="text">
+                        <label id="label6">Estado</label>
+                        <input id="estado" name="estado" type="text">
+                        <label id="label7">CEP</label>
+                        <input id="cep" name="cep" type="text">
+                        <label id="label8">Telefone</label>
+                        <input id="telefone" name="telefone" type="text">
+                        <label id="label9">Pedido</label>
+                        <input id="pedido" name="pedido" type="text">
+                        <label id="label10">Valor</label>
+                        <input id="valor" name="valor" type="text">
+                        <label id="label11">Forma de pagamento</label>
+                        <input id="formapagamento" name="formapagamento" type="text">
+                        <label id="label12">Observação</label>
+                        <input id="observacao" name="observacao" type="text">
+                        <button class="bttns" id="bttn1">CANCELAR</button>
+                        <button class="bttns" id="bttn2">FINALIZAR</button>
+                    </div>
+                       
+                   
+                </fieldset>
+            </form>
+    </div>
+    
+    <footer>
+        <div class="footerbttns">
+            <form>
+            <button onclick="ScreenHome()" type="button"   class="mainscrn">Tela inicial</button>
+            </form>
+            <form >
+            <button onclick="SignupClient()" type="button"  class="signupclt">Cadastro - Cliente</button>
+            </form>
+            <form>
+            <button  onclick="Order()" type="button" class="rqst">Pedido</button>
+            </form>
+            <form>
+            <button onclick="Payment()" type="button"  class="payiment">Pagamento</button>
+            </form>
+            <form>
+            <button onclick="Delivery()" type="button"  class="dlvr">Entregadores</button>
+            </form>
+            <form>
+            <button onclick="OrderConfirmation()" type="button" class="confirmdlvr">Confirmação do Pedido</button>
+            </form>
+        </div>
+    </footer>
+</body>
+</html>

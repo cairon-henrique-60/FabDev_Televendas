@@ -1,0 +1,371 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+body{
+    display: flex;
+}
+.topbar{
+    background-color: #0066FF;
+    width: 100vw;
+    max-width: 1920px;
+    max-height: 75PX;
+    height: 25vh;
+    position: absolute;
+
+}
+.leave{
+    display: flex;
+    position: relative;
+    left: 95vw;
+    top: -35px;
+    width: 31px;
+    height: 21px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+    color: white;
+}
+
+.leave:hover{
+    color: black;
+}
+.leave:link{
+    text-decoration: none;
+}
+.leaveicon{
+    display: flex;
+    position: relative;
+    left: 93.4vw;
+    top: -55px;
+}
+.container{
+    position: relative;
+    display: flex;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+.container label{
+    color: #4C4646;
+}
+.footerbttns{
+    display: flex;
+    position: relative;
+    bottom: 0;
+    position: absolute;
+    width: 100vw;
+    max-width: 200%;
+    left: 0;
+}
+
+
+.mainscrn{
+    width: 100vw;
+    max-width: 120px;
+    height: 36px;
+    cursor: pointer;
+  
+}
+.signupclt{
+    max-width: 158px;
+    width: 100vw;
+    height: 36px;
+    cursor: pointer;
+    
+}
+.rqst{
+    max-width: 74px;
+    width: 100vw;
+    height: 36px;
+    cursor: pointer;
+    
+
+}
+.payiment{
+    max-width: 106px;
+    width: 100vw;
+    height: 36px;
+    cursor: pointer;
+   
+}
+.dlvr{
+    max-width: 125px;
+    width: 100vw;
+    height: 36px;
+    cursor: pointer;
+   
+}
+.confirmdlvr{
+    max-width: 205px;
+    width: 100vw;
+    height: 36px;
+    cursor: pointer;
+    
+
+}
+button{
+    background: rgba(196, 196, 196, 0.6);
+    border: 1px solid rgba(0, 0, 0, 0.27);
+    box-sizing: border-box;
+}
+button:hover{
+    pointer-events: fill;
+    background-color: gray;
+    transition: all 0.5s;
+}
+.imglogo{
+    display: flex;
+    position: absolute;
+    width: 468px;
+    height: 273px;
+    left: 700px;
+    top: 35%;
+}
+.call:hover{
+    transform: scale(1.2);
+    transition: all 0.5s;
+
+}
+.call{
+    left: 30%;
+    display: flex;
+    position: relative;
+    top: 45em;
+}
+.tittleform{
+    left: 2%;
+    top: 15px;
+    width: 185px;
+    height: 23px;
+    color: rgba(0, 0, 0, 1);
+    position: absolute;
+    font-size: 20px;
+    line-height: 23px;
+}
+#confirmordersignup{
+        width: 100vw;
+        max-width: 1000px;
+        height: 100vh;
+        max-height: 541px;
+        background-color: rgba(255, 255, 255, 0.5);
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+        position: absolute;
+        display: flex;
+        left: 23%;
+        top: 20%;
+}
+.tittleform{
+    left: 2%;
+    top: 15px;
+    width: 185px;
+    height: 23px;
+    color: rgba(0, 0, 0, 1);
+    position: absolute;
+    font-size: 20px;
+    line-height: 23px;
+}
+#label1{
+    position: absolute;
+    top: 15%;
+    left: 4%;
+}
+#nomecliente{
+    position: absolute;
+    width: 392px;
+    height: 28px;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    top: 20%;
+    left: 4%;
+}
+#label2{
+    position: absolute;
+    top: 15%;
+    left: 50%;
+}
+#rua{
+    position: absolute;
+    width: 392px;
+    height: 28px;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    top: 20%;
+    left: 50%;
+}
+#label3{
+    position: absolute;
+    top: 30%;
+    left: 4%;
+}
+#numero{
+    position: absolute;
+    width: 108px;
+    height: 28px;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    left: 4%;
+    top: 35%;
+}
+#label4{
+    position: absolute;
+    top: 30%;
+    left: 20%;
+}
+#bairro{
+    position: absolute;
+    width: 322px;
+    height: 28px;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    top: 35%;
+    left: 20%;
+}
+#label5{
+    position: absolute;
+    top: 30%;
+    left: 59%;
+}
+#cidade{
+    position: absolute;
+    width: 304px;
+    height: 28px;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    top: 35%;
+    left: 59%;
+}
+#label6{
+    position: absolute;
+    top: 45%;
+    left: 4%;
+}
+#estado{
+    position: absolute;
+    width: 245px;
+    height: 28px;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    left: 4%;
+    top: 50%;
+}
+#label7{
+    position: absolute;
+    top: 45%;
+    left: 32%;
+}
+#cep{
+    position: absolute;
+    width: 235px;
+    height: 28px;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    top: 50%;
+    left: 32%;
+}
+#label8{
+    position: absolute;
+    top: 45%;
+    left: 64%;
+}
+#telefone{
+    position: absolute;
+    width: 254px;
+    height: 28px;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    top: 50%;
+    left: 64%;
+}
+#label9{
+    top: 60%;
+    position: absolute;
+    left: 4%;
+}
+
+#pedido{
+    position: absolute;
+    width: 295px;
+    height: 104px;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    top: 65%;
+    left: 4%;
+}
+#label10{
+    top: 60%;
+    left: 40%;
+    position: absolute;
+}
+#valor{
+    position: absolute;
+    width: 206px;
+    height: 28px;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    left: 40%;
+    top: 65%;
+}
+#label11{
+    position: absolute;
+    top: 60%;
+    left: 66%;
+}
+#formapagamento{
+    position: absolute;
+    width: 233px;
+    height: 28px;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    top: 65%;
+    left: 66%;
+}
+#label12{
+    position: absolute;
+    top: 75%;
+    left: 40%;
+}
+#observacao{
+    position: absolute;
+    width: 489px;
+    height: 28px;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    top: 80%;
+    left: 40%;
+}
+#bttn1{
+    left: 225%;
+    position: relative;
+    width: 146px;
+    height: 28px;
+    top: 90%;
+    cursor: pointer;
+    background: #700000;
+    color: white;
+}
+#bttn2{
+    left: 230%;
+    position: relative;
+    width: 121px;
+    height: 28px;
+    top: 90%;
+    cursor: pointer;
+    background: #001470;
+    color: white;
+    pointer-events: fill;
+    
+}
+#bttn1:hover{
+    transform: scale(1.1);
+    transition: all 0.5s;
+
+}
+#bttn2:hover{
+    transform: scale(1.1);
+    transition: all 0.5s;
+
+}

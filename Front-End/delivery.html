@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./style/delivery.css">
+    <script type="text/javascript" src="./script.js" > </script>
+    <title>Entregadores</title>
+</head>
+<body>
+    <section>
+        <div class="topbar">
+            <fieldlist>
+                <img id="img1" src="./imgs/imagem_modificada_letra_branca 1.png">
+                <a class="leave" href="./login.html">Sair</a>
+            <img src="./imgs/Icone Sair.png" alt="" class="leaveicon">
+            </fieldlist>
+            </div>
+        <div>
+        
+    
+    
+    <img class="call" src="./imgs/Chamada.png">
+    <div class="container1">
+            <form>
+                <fieldset id="deliverysignup">
+                    <div>
+                        <label class="tittleform">Entregadores</label>
+                    </div>
+                    <div>
+                        <label id="label1">Cidade</label>
+                        <input id="cidade1" name="cidade1" type="text">
+                        <label id="label2">Entregadores</label>
+                        <input id="entregadores" name="cidade" type="text">
+                        <label id="label3">Região</label>
+                        <input id="regiao" name="regiao" type="text">
+                        <label id="label4">Nome</label>
+                        <input id="nome" name="nome" type="text">
+                        <label id="label5">Estoque Atual</label>
+                        <input id="estoqueatual" name="estoqueatual" type="text">
+                        <label id="label6">Cidade</label>
+                        <input id="cidade2" name="cidade2" type="text">
+                        <label id="label7">Veículo</label>
+                        <input id="veiculo" name="veiculo" type="text">
+                        <label id="label8">Status Entrega</label>
+                        <input id="statusentrega" name="statusentrega" type="text">
+                        <label id="label9">Bairro Entrega</label>
+                        <input id="bairroentrega" name="bairroentrega" type="text">
+                    </div>
+                    <div>
+                        <button class="bttns" id="bttn1">CANCELAR</button>
+                        <button class="bttns" id="bttn2">CONCLUIR</button>
+                        </div>
+                    <div>
+                   
+
+                </fieldset>
+            </form>
+    </div>
+    
+    <footer>
+        <div class="footerbttns">
+            <form>
+            <button onclick="ScreenHome()" type="button"   class="mainscrn">Tela inicial</button>
+            </form>
+            <form >
+            <button onclick="SignupClient()" type="button"  class="signupclt">Cadastro - Cliente</button>
+            </form>
+            <form>
+            <button  onclick="Order()" type="button" class="rqst">Pedido</button>
+            </form>
+            <form>
+            <button onclick="Payment()" type="button"  class="payiment">Pagamento</button>
+            </form>
+            <form>
+            <button onclick="Delivery()" type="button"  class="dlvr">Entregadores</button>
+            </form>
+            <form>
+            <button onclick="OrderConfirmation()" type="button" class="confirmdlvr">Confirmação do Pedido</button>
+            </form>
+        </div>
+    </footer>
+
+</body>
+</html>

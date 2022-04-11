@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./style/payment.css">
+    <script type="text/javascript" src="./script.js" > </script>
+    <title>Pagamento</title>
+</head>
+<body>
+    <section>
+        <div class="topbar">
+            <fieldlist>
+                <img id="img1" src="./imgs/imagem_modificada_letra_branca 1.png">
+                <a class="leave" href="./login.html">Sair</a>
+                <img src="./imgs/Icone Sair.png" alt="" class="leaveicon">
+            </fieldlist>
+            </div>
+        <div>
+        
+
+
+    <img class="call" src="./imgs/Chamada.png">
+        <div>
+            <form class="paymentform">
+                <fieldset class="paymentsignup">
+                    <div>
+                        <label class="tittleform">Pagamento</label>
+                    </div>
+                    <div>
+                        <label id="label1">Forma de Pagamento</label>
+                        <select id="formapagamento" name="formapagamento">
+                            <option>Selecione...</option>
+                        </select>
+                        </div>
+                        <div>
+                            <label id="label2">Desconto</label>
+                            <select id="desconto" name="desconto">
+                                <option>Selecione...</option>
+                        </select>
+                        </div>
+                        <div>
+                            <label id="label3">Observação</label>
+                            <input type="text" id="observacao" name="observacao" disabled>
+                        </div>
+                        <div>
+                            <label id="label4">Valor de Desconto</label>
+                            <input type="text" id="valordesconto" name="valordesconto" disabled>
+                        </div>
+                        <div>
+                            <label id="label5">Preço Final</label>
+                            <input type="text" id="precofinal" name="precofinal">
+                        </div>
+                        <div>
+                            <button class="bttns" id="bttn1">CANCELAR</button>
+                            <button class="bttns" id="bttn2">Concluir</button>
+                        </div>
+                </fieldset>
+            </form>
+        </div>
+    
+        <footer>
+            <div class="footerbttns">
+                <form>
+                <button onclick="ScreenHome()" type="button"   class="mainscrn">Tela inicial</button>
+                </form>
+                <form >
+                <button onclick="SignupClient()" type="button"  class="signupclt">Cadastro - Cliente</button>
+                </form>
+                <form>
+                <button  onclick="Order()" type="button" class="rqst">Pedido</button>
+                </form>
+                <form>
+                <button onclick="Payment()" type="button"  class="payiment">Pagamento</button>
+                </form>
+                <form>
+                <button onclick="Delivery()" type="button"  class="dlvr">Entregadores</button>
+                </form>
+                <form>
+                <button onclick="OrderConfirmation()" type="button" class="confirmdlvr">Confirmação do Pedido</button>
+                </form>
+            </div>
+        </footer>
+        
+    
+</body>
+</html>
