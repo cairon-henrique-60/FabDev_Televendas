@@ -1,10 +1,28 @@
 package br.com.ibiagas.entidades;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Funcionarios {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
+public class Funcionarios implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 	
-	private int cod_func; //--> Primary Key
+	@Id
+	@GeneratedValue(strategy= GenerationType.AUTO)
+	private int cod_func;
+
+	@OneToOne
+	private Departamento departamento;
+	@OneToOne
+	private Cargo cargo;
+	
 	private String nome_fun;
 	private String end_func;
 	private String bairro_func;
@@ -20,13 +38,24 @@ public class Funcionarios {
 	private int cod_depto;
 	private int cod_urna;
 	
+	// Getters and Setters
+
+	public Departamento getDepartamento() {
+		return departamento;
+	}
+	public void setDepartamento(Departamento departamento) {
+		this.departamento = departamento;
+	}
+	public int getCod_func() {
+		return cod_func;
+	}
+	public void setCod_func(int cod_func) {
+		this.cod_func = cod_func;
+	}
 	public String getNome_fun() {
 		return nome_fun;
 	}
 	public void setNome_fun(String nome_fun) {
-		if (nome_fun == null) {
-			throw new RuntimeException("Nome do funcioanário não pode ser nulo");
-		}
 		this.nome_fun = nome_fun;
 	}
 	public String getEnd_func() {
@@ -63,9 +92,6 @@ public class Funcionarios {
 		return email_func;
 	}
 	public void setEmail_func(String email_func) {
-		if (email_func == null) {
-			throw new RuntimeException("Email do funcionário não pode ser nulo*");
-		}
 		this.email_func = email_func;
 	}
 	public String getCpf_func() {
@@ -109,5 +135,5 @@ public class Funcionarios {
 	}
 	public void setCod_urna(int cod_urna) {
 		this.cod_urna = cod_urna;
-	}	
+	}
 }

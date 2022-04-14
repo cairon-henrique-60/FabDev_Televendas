@@ -1,10 +1,27 @@
 package br.com.ibiagas.entidades;
 
+import java.io.Serializable;
 import java.sql.Time;
 import java.util.Date;
 
-public class Movimentacao_material {
-	private int cod_movimentacao; //--> Primary key
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
+public class Movimentacao_material implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy= GenerationType.AUTO)
+	private int cod_movimentacao;
+	
+	@OneToOne
+	private Produto produto;
+	
 	private Date data_movimentacao;
 	private Time hora_movimentacao;
 	private int qtd_movimentacao;
@@ -12,22 +29,30 @@ public class Movimentacao_material {
 	private int cod_produto;
 	private int cod_veiculo_entregador;
 	
+	//Getters and Setters
+	
+	public int getCod_movimentacao() {
+		return cod_movimentacao;
+	}
+	public void setCod_movimentacao(int cod_movimentacao) {
+		this.cod_movimentacao = cod_movimentacao;
+	}
+	public Produto getProduto() {
+		return produto;
+	}
+	public void setProduto(Produto produto) {
+		this.produto = produto;
+	}
 	public Date getData_movimentacao() {
 		return data_movimentacao;
 	}
 	public void setData_movimentacao(Date data_movimentacao) {
-		if (data_movimentacao == null) {
-			throw new RuntimeException("Data da movimentação não pode ser nula");
-		}
 		this.data_movimentacao = data_movimentacao;
 	}
 	public Time getHora_movimentacao() {
 		return hora_movimentacao;
 	}
 	public void setHora_movimentacao(Time hora_movimentacao) {
-		if (hora_movimentacao == null) {
-			throw new RuntimeException("Hora da movimentação não pode ser nula");
-		}
 		this.hora_movimentacao = hora_movimentacao;
 	}
 	public int getQtd_movimentacao() {
@@ -36,17 +61,10 @@ public class Movimentacao_material {
 	public void setQtd_movimentacao(int qtd_movimentacao) {
 		this.qtd_movimentacao = qtd_movimentacao;
 	}
-	
 	public String getTipo_movimentacao() {
 		return tipo_movimentacao;
 	}
 	public void setTipo_movimentacao(String tipo_movimentacao) {
-		if (tipo_movimentacao == null) {
-			throw new RuntimeException("Tipo da movimentação não pode ser nulo");
-		}
-		if (tipo_movimentacao.length() > 1) {
-			throw new RuntimeException("Tipo da movimentação só pode ter um caractere");
-		}
 		this.tipo_movimentacao = tipo_movimentacao;
 	}
 	public int getCod_produto() {
@@ -61,5 +79,7 @@ public class Movimentacao_material {
 	public void setCod_veiculo_entregador(int cod_veiculo_entregador) {
 		this.cod_veiculo_entregador = cod_veiculo_entregador;
 	}
+	
+	
 	
 }

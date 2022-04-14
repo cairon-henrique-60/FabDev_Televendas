@@ -1,8 +1,21 @@
 package br.com.ibiagas.entidades;
 
-public class Fornecedor {
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Fornecedor implements Serializable{
 	
-	private int cod_fornecedor; //--> Primary Key
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy= GenerationType.AUTO)
+	private int cod_fornecedor; 
+	
 	private String nome_fornecedor;
 	private String end_uf;
 	private String end_cidade;
@@ -10,40 +23,37 @@ public class Fornecedor {
 	private int end_cep;
 	private int cod_tipo_fornecedor;
 	private int cpf_cnpj;
+	
+	// Getters and Setters
+	
+	public int getCod_fornecedor() {
+		return cod_fornecedor;
+	}
+	public void setCod_fornecedor(int cod_fornecedor) {
+		this.cod_fornecedor = cod_fornecedor;
+	}
 	public String getNome_fornecedor() {
 		return nome_fornecedor;
 	}
 	public void setNome_fornecedor(String nome_fornecedor) {
-		if (end_cidade == null) {
-			throw new RuntimeException("Nome do fornecedor não pode ser nulo");
-		}
 		this.nome_fornecedor = nome_fornecedor;
 	}
 	public String getEnd_uf() {
 		return end_uf;
 	}
 	public void setEnd_uf(String end_uf) {
-		if (end_uf == null) {
-			throw new RuntimeException("Endereço do fornecedor não pode ser nulo");
-		}
 		this.end_uf = end_uf;
 	}
 	public String getEnd_cidade() {
 		return end_cidade;
 	}
 	public void setEnd_cidade(String end_cidade) {
-		if (end_cidade == null) {
-			throw new RuntimeException("Cidade do fornecedor não pode ser nula");
-		}
 		this.end_cidade = end_cidade;
 	}
 	public String getEnd_logradouro() {
 		return end_logradouro;
 	}
 	public void setEnd_logradouro(String end_logradouro) {
-		if (end_cidade == null) {
-			throw new RuntimeException("Logradouro do fornecedor não pode ser nulo");
-		}
 		this.end_logradouro = end_logradouro;
 	}
 	public int getEnd_cep() {
@@ -67,3 +77,4 @@ public class Fornecedor {
 	
 	
 }
+
