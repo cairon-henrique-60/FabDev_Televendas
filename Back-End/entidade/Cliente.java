@@ -1,4 +1,4 @@
-package br.com.ibiagas.entidades;
+package br.com.ibiagas.models;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -12,7 +12,7 @@ public class Cliente {
 	private int id_cliente;
 	
 	@OneToOne
-	private Tipo_Cliente tipo_cliente;
+	private Tipo_cliente tipo_cliente;
 	@OneToMany
 	private Pedido pedido;
 	
@@ -31,10 +31,16 @@ public class Cliente {
 	
 	//Getters and Setters
 	
-	public Tipo_Cliente getTipo_cliente() {
+	public Tipo_cliente getTipo_cliente() {
 		return tipo_cliente;
 	}
-	public void setTipo_cliente(Tipo_Cliente tipo_cliente) {
+	public Pedido getPedido() {
+		return pedido;
+	}
+	public void setPedido(Pedido pedido) {
+		this.pedido = pedido;
+	}
+	public void setTipo_cliente(Tipo_cliente tipo_cliente) {
 		this.tipo_cliente = tipo_cliente;
 	}
 	public int getId_cliente() {

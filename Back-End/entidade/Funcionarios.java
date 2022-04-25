@@ -1,27 +1,32 @@
-package br.com.ibiagas.entidades;
+package br.com.ibiagas.models;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Funcionarios implements Serializable{
+public class Funcionarios implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
-	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
-	private int cod_func;
 
 	@OneToOne
 	private Departamento departamento;
 	@OneToOne
 	private Cargo cargo;
+	@OneToMany
+	private Veiculo_entregador veiculo_entregador;
+	@OneToOne
+	private Caixa_urna caixa_urna;
+	
+	@Id
+	@GeneratedValue(strategy= GenerationType.AUTO)
+	private int cod_func;
 	
 	private String nome_fun;
 	private String end_func;
@@ -33,7 +38,7 @@ public class Funcionarios implements Serializable{
 	private String cpf_func;
 	private int num_cnh;
 	private String tipo_cnh;
-	private Date val_cnh;
+	private LocalDate val_cnh;
 	private int cod_cargo;
 	private int cod_depto;
 	private int cod_urna;
@@ -112,10 +117,10 @@ public class Funcionarios implements Serializable{
 	public void setTipo_cnh(String tipo_cnh) {
 		this.tipo_cnh = tipo_cnh;
 	}
-	public Date getVal_cnh() {
+	public LocalDate getVal_cnh() {
 		return val_cnh;
 	}
-	public void setVal_cnh(Date val_cnh) {
+	public void setVal_cnh(LocalDate val_cnh) {
 		this.val_cnh = val_cnh;
 	}
 	public int getCod_cargo() {
@@ -135,5 +140,23 @@ public class Funcionarios implements Serializable{
 	}
 	public void setCod_urna(int cod_urna) {
 		this.cod_urna = cod_urna;
+	}
+	public Cargo getCargo() {
+		return cargo;
+	}
+	public void setCargo(Cargo cargo) {
+		this.cargo = cargo;
+	}
+	public Veiculo_entregador getVeiculo_entregador() {
+		return veiculo_entregador;
+	}
+	public void setVeiculo_entregador(Veiculo_entregador veiculo_entregador) {
+		this.veiculo_entregador = veiculo_entregador;
+	}
+	public Caixa_urna getCaixa_urna() {
+		return caixa_urna;
+	}
+	public void setCaixa_urna(Caixa_urna caixa_urna) {
+		this.caixa_urna = caixa_urna;
 	}
 }

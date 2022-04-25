@@ -1,8 +1,8 @@
-package br.com.ibiagas.entidades;
+package br.com.ibiagas.models;
 
 import java.io.Serializable;
 import java.sql.Time;
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,8 +21,10 @@ public class Movimentacao_material implements Serializable{
 	
 	@OneToOne
 	private Produto produto;
+	@OneToOne
+	private Veiculo_entregador veiculo_entregador;
 	
-	private Date data_movimentacao;
+	private LocalDate data_movimentacao;
 	private Time hora_movimentacao;
 	private int qtd_movimentacao;
 	private String tipo_movimentacao;
@@ -34,6 +36,12 @@ public class Movimentacao_material implements Serializable{
 	public int getCod_movimentacao() {
 		return cod_movimentacao;
 	}
+	public Veiculo_entregador getVeiculo_entregador() {
+		return veiculo_entregador;
+	}
+	public void setVeiculo_entregador(Veiculo_entregador veiculo_entregador) {
+		this.veiculo_entregador = veiculo_entregador;
+	}
 	public void setCod_movimentacao(int cod_movimentacao) {
 		this.cod_movimentacao = cod_movimentacao;
 	}
@@ -43,10 +51,10 @@ public class Movimentacao_material implements Serializable{
 	public void setProduto(Produto produto) {
 		this.produto = produto;
 	}
-	public Date getData_movimentacao() {
+	public LocalDate getData_movimentacao() {
 		return data_movimentacao;
 	}
-	public void setData_movimentacao(Date data_movimentacao) {
+	public void setData_movimentacao(LocalDate data_movimentacao) {
 		this.data_movimentacao = data_movimentacao;
 	}
 	public Time getHora_movimentacao() {

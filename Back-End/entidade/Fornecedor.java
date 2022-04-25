@@ -1,4 +1,4 @@
-package br.com.ibiagas.entidades;
+package br.com.ibiagas.models;
 
 import java.io.Serializable;
 
@@ -6,11 +6,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Fornecedor implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
+	
+	@OneToOne
+	private Tipo_fornecedor tipo_fornecedor;
+	@OneToMany
+	private Nota_fiscal_entrada nota_fiscal_entrada;
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
@@ -74,7 +81,17 @@ public class Fornecedor implements Serializable{
 	public void setCpf_cnpj(int cpf_cnpj) {
 		this.cpf_cnpj = cpf_cnpj;
 	}
-	
-	
+	public Tipo_fornecedor getTipo_fornecedor() {
+		return tipo_fornecedor;
+	}
+	public void setTipo_fornecedor(Tipo_fornecedor tipo_fornecedor) {
+		this.tipo_fornecedor = tipo_fornecedor;
+	}
+	public Nota_fiscal_entrada getNota_fiscal_entrada() {
+		return nota_fiscal_entrada;
+	}
+	public void setNota_fiscal_entrada(Nota_fiscal_entrada nota_fiscal_entrada) {
+		this.nota_fiscal_entrada = nota_fiscal_entrada;
+	}
 }
 

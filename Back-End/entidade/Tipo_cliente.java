@@ -1,4 +1,4 @@
-package br.com.ibiagas.entidades;
+package br.com.ibiagas.models;
 
 import java.io.Serializable;
 
@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Tipo_Cliente implements Serializable{
+public class Tipo_cliente implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 

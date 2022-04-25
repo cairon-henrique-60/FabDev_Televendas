@@ -1,4 +1,4 @@
-package br.com.ibiagas.entidades;
+package br.com.ibiagas.models;
 
 import java.io.Serializable;
 

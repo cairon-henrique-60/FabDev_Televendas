@@ -1,4 +1,4 @@
-package br.com.ibiagas.entidades;
+package br.com.ibiagas.models;
 
 import java.io.Serializable;
 
@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -19,8 +20,14 @@ public class Pedido implements Serializable{
 	
 	@OneToOne
 	private Cliente cliente;
+	@OneToMany
+	private Item_pedido item_pedido;
+	@OneToOne
+	private Formas_pagamento formas_pagamento;
+	@OneToOne
+	private Caixa_urna caixa_urna;
 	
-	private int um_pedido; 
+	private int num_pedido; 
 	private int id_cliente; 
 	private int cod_urna; 
 	private int cod_pagamento; 
@@ -41,10 +48,10 @@ public class Pedido implements Serializable{
 		this.cliente = cliente;
 	}
 	public int getUm_pedido() {
-		return um_pedido;
+		return num_pedido;
 	}
 	public void setUm_pedido(int um_pedido) {
-		this.um_pedido = um_pedido;
+		this.num_pedido = um_pedido;
 	}
 	public int getId_cliente() {
 		return id_cliente;
@@ -70,6 +77,28 @@ public class Pedido implements Serializable{
 	public void setCod_func(int cod_func) {
 		this.cod_func = cod_func;
 	} 
-	
-	
+	public Item_pedido getItem_pedido() {
+		return item_pedido;
+	}
+	public void setItem_pedido(Item_pedido item_pedido) {
+		this.item_pedido = item_pedido;
+	}
+	public Formas_pagamento getFormas_pagamento() {
+		return formas_pagamento;
+	}
+	public void setFormas_pagamento(Formas_pagamento formas_pagamento) {
+		this.formas_pagamento = formas_pagamento;
+	}
+	public Caixa_urna getCaixa_urna() {
+		return caixa_urna;
+	}
+	public void setCaixa_urna(Caixa_urna caixa_urna) {
+		this.caixa_urna = caixa_urna;
+	}
+	public int getNum_pedido() {
+		return num_pedido;
+	}
+	public void setNum_pedido(int num_pedido) {
+		this.num_pedido = num_pedido;
+	}
 }

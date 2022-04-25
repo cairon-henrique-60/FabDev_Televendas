@@ -1,4 +1,4 @@
-package br.com.ibiagas.entidades;
+package br.com.ibiagas.models;
 
 import java.io.Serializable;
 
@@ -14,14 +14,20 @@ public class Produto implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
-	private int cod_produto;
-	
 	@OneToMany
 	private Movimentacao_material movimentacao_material;
 	@OneToOne
 	private Preco_custo preco_custo;
+	@OneToMany
+	private Item_pedido item_pedido;
+	@OneToOne
+	private Preco_venda preco_venda;
+	@OneToMany
+	private Item_nota_fiscal_entrada item_nota_fiscal_entrada;
+	
+	@Id
+	@GeneratedValue(strategy= GenerationType.AUTO)
+	private int cod_produto;
 	
 	private String nome_produto;
 	private int cod_preco_custo;
@@ -65,5 +71,22 @@ public class Produto implements Serializable{
 	public void setCod_preco_venda(int cod_preco_venda) {
 		this.cod_preco_venda = cod_preco_venda;
 	}
-
+	public Item_pedido getItem_pedido() {
+		return item_pedido;
+	}
+	public void setItem_pedido(Item_pedido item_pedido) {
+		this.item_pedido = item_pedido;
+	}
+	public Preco_venda getPreco_venda() {
+		return preco_venda;
+	}
+	public void setPreco_venda(Preco_venda preco_venda) {
+		this.preco_venda = preco_venda;
+	}
+	public Item_nota_fiscal_entrada getItem_nota_fiscal_entrada() {
+		return item_nota_fiscal_entrada;
+	}
+	public void setItem_nota_fiscal_entrada(Item_nota_fiscal_entrada item_nota_fiscal_entrada) {
+		this.item_nota_fiscal_entrada = item_nota_fiscal_entrada;
+	}
 }
