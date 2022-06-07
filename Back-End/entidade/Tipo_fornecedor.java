@@ -1,7 +1,9 @@
 package br.com.ibiagas.models;
 
 import java.io.Serializable;
+import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,9 +19,11 @@ public class Tipo_fornecedor implements Serializable{
 	private Fornecedor fornecedor;
 	
 	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@Column(nullable = false)
 	private int cod_tipo_fornecedor;
 	
+	@Column(length = 15, nullable = false)
 	private String desc_tipo_pessoa;
 
 	//Getters and Setters
@@ -41,5 +45,23 @@ public class Tipo_fornecedor implements Serializable{
 	}
 	public void setDesc_tipo_pessoa(String desc_tipo_pessoa) {
 		this.desc_tipo_pessoa = desc_tipo_pessoa;
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(cod_tipo_fornecedor, desc_tipo_pessoa, fornecedor);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Tipo_fornecedor other = (Tipo_fornecedor) obj;
+		return cod_tipo_fornecedor == other.cod_tipo_fornecedor
+				&& Objects.equals(desc_tipo_pessoa, other.desc_tipo_pessoa)
+				&& Objects.equals(fornecedor, other.fornecedor);
 	}
 }

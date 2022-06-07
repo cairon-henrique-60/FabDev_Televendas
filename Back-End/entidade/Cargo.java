@@ -1,7 +1,9 @@
 package br.com.ibiagas.models;
 
 import java.io.Serializable;
+import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,13 +15,15 @@ public class Cargo implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
-	private int cod_cargo;
-	
 	@OneToMany
 	private Funcionarios funcionarios;
 	
+	@Id
+    @Column(nullable = false)
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	private int cod_cargo;
+	
+    @Column(length = 15, nullable = false)
 	private String nome_cargo;
 
     // Getters and Setters 	
@@ -41,5 +45,21 @@ public class Cargo implements Serializable {
 	}
 	public void setNome_cargo(String nome_cargo) {
 		this.nome_cargo = nome_cargo;
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(funcionarios, nome_cargo);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cargo other = (Cargo) obj;
+		return Objects.equals(funcionarios, other.funcionarios) && Objects.equals(nome_cargo, other.nome_cargo);
 	}
 }

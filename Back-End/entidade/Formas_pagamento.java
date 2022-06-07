@@ -1,5 +1,8 @@
 package br.com.ibiagas.models;
 
+import java.util.Objects;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -11,7 +14,10 @@ public class Formas_pagamento {
 	private Pedido pedido;
 	
 	@Id
-	private int cod_pagamento; 
+	@Column(nullable = false)
+	private int cod_pagamento;
+	
+	@Column(length = 15, nullable = false)
 	private String forma_pagamento;
 	
 	//Getters and Setters
@@ -35,5 +41,20 @@ public class Formas_pagamento {
 		this.forma_pagamento = forma_pagamento;
 	}
 	
-	
+	@Override
+	public int hashCode() {
+		return Objects.hash(cod_pagamento, forma_pagamento, pedido);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Formas_pagamento other = (Formas_pagamento) obj;
+		return cod_pagamento == other.cod_pagamento && Objects.equals(forma_pagamento, other.forma_pagamento)
+				&& Objects.equals(pedido, other.pedido);
+	}
 }

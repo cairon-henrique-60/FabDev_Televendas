@@ -1,7 +1,9 @@
 package br.com.ibiagas.models;
 
 import java.io.Serializable;
+import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,15 +22,29 @@ public class Fornecedor implements Serializable{
 	private Nota_fiscal_entrada nota_fiscal_entrada;
 	
 	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@Column(nullable = false)
 	private int cod_fornecedor; 
 	
+	@Column(length = 30, nullable = false)
 	private String nome_fornecedor;
+	
+	@Column(length = 10, nullable = false)
 	private String end_uf;
+	
+	@Column(length = 30, nullable = false)
 	private String end_cidade;
+	
+	@Column(length = 30, nullable = false)
 	private String end_logradouro;
+	
+	@Column(nullable = false)
 	private int end_cep;
+	
+	@Column(nullable = false)
 	private int cod_tipo_fornecedor;
+	
+	@Column(nullable = false)
 	private int cpf_cnpj;
 	
 	// Getters and Setters
@@ -92,6 +108,28 @@ public class Fornecedor implements Serializable{
 	}
 	public void setNota_fiscal_entrada(Nota_fiscal_entrada nota_fiscal_entrada) {
 		this.nota_fiscal_entrada = nota_fiscal_entrada;
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(cod_fornecedor, cod_tipo_fornecedor, cpf_cnpj, end_cep, end_cidade, end_logradouro, end_uf,
+				nome_fornecedor, nota_fiscal_entrada, tipo_fornecedor);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Fornecedor other = (Fornecedor) obj;
+		return cod_fornecedor == other.cod_fornecedor && cod_tipo_fornecedor == other.cod_tipo_fornecedor
+				&& cpf_cnpj == other.cpf_cnpj && end_cep == other.end_cep
+				&& Objects.equals(end_cidade, other.end_cidade) && Objects.equals(end_logradouro, other.end_logradouro)
+				&& Objects.equals(end_uf, other.end_uf) && Objects.equals(nome_fornecedor, other.nome_fornecedor)
+				&& Objects.equals(nota_fiscal_entrada, other.nota_fiscal_entrada)
+				&& Objects.equals(tipo_fornecedor, other.tipo_fornecedor);
 	}
 }
 

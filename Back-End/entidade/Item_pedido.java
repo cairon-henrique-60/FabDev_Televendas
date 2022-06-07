@@ -1,5 +1,8 @@
 package br.com.ibiagas.models;
 
+import java.util.Objects;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
@@ -13,10 +16,19 @@ public class Item_pedido {
 	private Produto produto;
 	
 	@Id
+	@Column(nullable = false)
 	private int cod_item_pedido;
+	
+	@Column(nullable = false)
 	private int qtd_produto_pedido; 
+	
+	@Column(nullable = false)
 	private float preco_venda;	
+	
+	@Column(nullable = false)
 	private int cod_pedido;	
+	
+	@Column(nullable = false)
 	private int cod_produto;
 	
 	//Getters and Setters
@@ -62,5 +74,23 @@ public class Item_pedido {
 	}
 	public void setCod_produto(int cod_produto) {
 		this.cod_produto = cod_produto;
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(cod_item_pedido, cod_pedido, cod_produto, pedido, preco_venda, produto, qtd_produto_pedido);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Item_pedido other = (Item_pedido) obj;
+		return cod_item_pedido == other.cod_item_pedido && cod_pedido == other.cod_pedido
+				&& cod_produto == other.cod_produto && Objects.equals(pedido, other.pedido)
+				&& Float.floatToIntBits(preco_venda) == Float.floatToIntBits(other.preco_venda)
+				&& Objects.equals(produto, other.produto) && qtd_produto_pedido == other.qtd_produto_pedido;
 	}
 }

@@ -2,13 +2,17 @@ package br.com.ibiagas.models;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Veiculo implements Serializable{
@@ -21,11 +25,18 @@ public class Veiculo implements Serializable{
 	private Modelo_veiculo modelo_veiculo; 
 	
 	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@Column(nullable = false)
 	private int cod_veiculo;
 	
+	@Column(length = 30, nullable = false)
 	private String nome_veiculo;
+	
+	@Column(nullable = false)
+	@DateTimeFormat(pattern = "yyyy")
 	private LocalDate ano_veiculo;
+	
+	@Column(nullable = false)
 	private int cod_mod_veiculo;
 	
 	//Getters and Setters
@@ -65,5 +76,25 @@ public class Veiculo implements Serializable{
 	}
 	public void setCod_mod_veiculo(int cod_mod_veiculo) {
 		this.cod_mod_veiculo = cod_mod_veiculo;
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(ano_veiculo, cod_mod_veiculo, cod_veiculo, modelo_veiculo, nome_veiculo,
+				veiculo_entregador);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Veiculo other = (Veiculo) obj;
+		return Objects.equals(ano_veiculo, other.ano_veiculo) && cod_mod_veiculo == other.cod_mod_veiculo
+				&& cod_veiculo == other.cod_veiculo && Objects.equals(modelo_veiculo, other.modelo_veiculo)
+				&& Objects.equals(nome_veiculo, other.nome_veiculo)
+				&& Objects.equals(veiculo_entregador, other.veiculo_entregador);
 	}
 }

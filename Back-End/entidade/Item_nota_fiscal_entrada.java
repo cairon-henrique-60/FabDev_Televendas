@@ -1,7 +1,9 @@
 package br.com.ibiagas.models;
 
 import java.io.Serializable;
+import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,11 +19,17 @@ public class Item_nota_fiscal_entrada implements Serializable{
 	private Produto produto;
 	
 	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@Column(nullable = false)
 	private int cod_itens_nf_ent;
 	
+	@Column(nullable = false)
 	private float Valor_unitario;
+	
+	@Column(nullable = false)
 	private int cod_produto;
+	
+	@Column(nullable = false)
 	private int num_nfentrada;
 	
 	//Getters and Setters
@@ -55,5 +63,24 @@ public class Item_nota_fiscal_entrada implements Serializable{
 	}
 	public void setNum_nfentrada(int num_nfentrada) {
 		this.num_nfentrada = num_nfentrada;
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(Valor_unitario, cod_itens_nf_ent, cod_produto, num_nfentrada, produto);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Item_nota_fiscal_entrada other = (Item_nota_fiscal_entrada) obj;
+		return Float.floatToIntBits(Valor_unitario) == Float.floatToIntBits(other.Valor_unitario)
+				&& cod_itens_nf_ent == other.cod_itens_nf_ent && cod_produto == other.cod_produto
+				&& num_nfentrada == other.num_nfentrada && Objects.equals(produto, other.produto);
 	} 
+	
 }

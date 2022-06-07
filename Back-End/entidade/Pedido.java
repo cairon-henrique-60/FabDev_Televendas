@@ -1,7 +1,9 @@
 package br.com.ibiagas.models;
 
 import java.io.Serializable;
+import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,10 +16,6 @@ public class Pedido implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
-	private int cod_pedido;
-	
 	@OneToOne
 	private Cliente cliente;
 	@OneToMany
@@ -27,10 +25,24 @@ public class Pedido implements Serializable{
 	@OneToOne
 	private Caixa_urna caixa_urna;
 	
+	@Id
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@Column(nullable = false)
+	private int cod_pedido;
+	
+	@Column(nullable = false)
 	private int num_pedido; 
+	
+	@Column(nullable = false)
 	private int id_cliente; 
+	
+	@Column(nullable = false)
 	private int cod_urna; 
+	
+	@Column(nullable = false)
 	private int cod_pagamento; 
+	
+	@Column(nullable = false)
 	private int cod_func;
 	
 	//Getters and Setters
@@ -100,5 +112,26 @@ public class Pedido implements Serializable{
 	}
 	public void setNum_pedido(int num_pedido) {
 		this.num_pedido = num_pedido;
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(caixa_urna, cliente, cod_func, cod_pagamento, cod_pedido, cod_urna, formas_pagamento,
+				id_cliente, item_pedido, num_pedido);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Pedido other = (Pedido) obj;
+		return Objects.equals(caixa_urna, other.caixa_urna) && Objects.equals(cliente, other.cliente)
+				&& cod_func == other.cod_func && cod_pagamento == other.cod_pagamento && cod_pedido == other.cod_pedido
+				&& cod_urna == other.cod_urna && Objects.equals(formas_pagamento, other.formas_pagamento)
+				&& id_cliente == other.id_cliente && Objects.equals(item_pedido, other.item_pedido)
+				&& num_pedido == other.num_pedido;
 	}
 }

@@ -3,32 +3,50 @@ package br.com.ibiagas.models;
 import java.io.Serializable;
 import java.sql.Time;
 import java.time.LocalDate;
+import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 public class Movimentacao_material implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
-	
-	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
-	private int cod_movimentacao;
 	
 	@OneToOne
 	private Produto produto;
 	@OneToOne
 	private Veiculo_entregador veiculo_entregador;
 	
+	@Id
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@Column(nullable = false)
+	private int cod_movimentacao;
+	
+	@Column(nullable = false)
+	@DateTimeFormat(style = "dd/M/yyyy")
 	private LocalDate data_movimentacao;
+	
+	@Column(nullable = false)
+	@DateTimeFormat(pattern = "hh:mm:ss")
 	private Time hora_movimentacao;
+	
+	@Column(nullable = false)
 	private int qtd_movimentacao;
+	
+	@Column(length = 1)
 	private String tipo_movimentacao;
+	
+	@Column(nullable = false)
 	private int cod_produto;
+	
+	@Column(nullable = false)
 	private int cod_veiculo_entregador;
 	
 	//Getters and Setters
@@ -88,6 +106,26 @@ public class Movimentacao_material implements Serializable{
 		this.cod_veiculo_entregador = cod_veiculo_entregador;
 	}
 	
-	
-	
+	@Override
+	public int hashCode() {
+		return Objects.hash(cod_movimentacao, cod_produto, cod_veiculo_entregador, data_movimentacao, hora_movimentacao,
+				produto, qtd_movimentacao, tipo_movimentacao, veiculo_entregador);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Movimentacao_material other = (Movimentacao_material) obj;
+		return cod_movimentacao == other.cod_movimentacao && cod_produto == other.cod_produto
+				&& cod_veiculo_entregador == other.cod_veiculo_entregador
+				&& Objects.equals(data_movimentacao, other.data_movimentacao)
+				&& Objects.equals(hora_movimentacao, other.hora_movimentacao) && Objects.equals(produto, other.produto)
+				&& qtd_movimentacao == other.qtd_movimentacao
+				&& Objects.equals(tipo_movimentacao, other.tipo_movimentacao)
+				&& Objects.equals(veiculo_entregador, other.veiculo_entregador);
+	}
 }

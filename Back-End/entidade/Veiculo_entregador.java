@@ -1,7 +1,9 @@
 package br.com.ibiagas.models;
 
 import java.io.Serializable;
+import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,11 +24,17 @@ public class Veiculo_entregador implements Serializable{
 	private Movimentacao_material movimentacao_material;
 	
 	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@Column(nullable = false)
 	private int cod_veiculo_entregador;
 	
+	@Column(nullable = false)
 	private int saldo_estoque;
+	
+	@Column(nullable = false)
 	private int cod_veiculo;
+	
+	@Column(nullable = false)
 	private int cod_func;
 	
 	//Getters and Setters 
@@ -72,5 +80,26 @@ public class Veiculo_entregador implements Serializable{
 	}
 	public void setCod_func(int cod_func) {
 		this.cod_func = cod_func;
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(cod_func, cod_veiculo, cod_veiculo_entregador, funcionarios, movimentacao_material,
+				saldo_estoque, veiculo);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Veiculo_entregador other = (Veiculo_entregador) obj;
+		return cod_func == other.cod_func && cod_veiculo == other.cod_veiculo
+				&& cod_veiculo_entregador == other.cod_veiculo_entregador
+				&& Objects.equals(funcionarios, other.funcionarios)
+				&& Objects.equals(movimentacao_material, other.movimentacao_material)
+				&& saldo_estoque == other.saldo_estoque && Objects.equals(veiculo, other.veiculo);
 	}
 }

@@ -1,5 +1,8 @@
 package br.com.ibiagas.models;
 
+import java.util.Objects;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -8,25 +11,49 @@ import javax.persistence.OneToOne;
 @Entity
 public class Cliente {
 	
-	@Id
-	private int id_cliente;
-	
 	@OneToOne
 	private Tipo_cliente tipo_cliente;
 	@OneToMany
 	private Pedido pedido;
 	
+	@Id
+	@Column(nullable = false)
+	private int id_cliente;
+	
+	@Column(length = 80, nullable = false)
 	private String nome_cliente; 
+	
+	@Column(length = 30, nullable = false)
 	private String end_logradouro;
+	
+	@Column(nullable = false)
 	private int end_num;	
+	
+	@Column(length = 10, nullable = false)
 	private String end_complemento;	
+	
+	@Column(length = 30, nullable = false)
 	private String end_bairro; 
+	
+	@Column(length = 30, nullable = false)
 	private String end_cidade; 
+	
+	@Column(length = 10, nullable = false)
 	private String end_uf; 
-	private int end_cep;				
+	
+	@Column(nullable = true)
+	private int end_cep;		
+	
+	@Column(nullable = false)
 	private int tel;	
-	private String email; 		
+	
+	@Column(length = 80)
+	private String email;
+	
+	@Column(nullable = false)
 	private int cod_tipo_cliente;
+	
+	@Column(nullable = false)
 	private int cpf_cnpj;
 	
 	//Getters and Setters
@@ -120,5 +147,30 @@ public class Cliente {
 	}
 	public void setCpf_cnpj(int cpf_cnpj) {
 		this.cpf_cnpj = cpf_cnpj;
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(cod_tipo_cliente, cpf_cnpj, email, end_bairro, end_cep, end_cidade, end_complemento,
+				end_logradouro, end_num, end_uf, id_cliente, nome_cliente, pedido, tel, tipo_cliente);
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cliente other = (Cliente) obj;
+		return cod_tipo_cliente == other.cod_tipo_cliente && cpf_cnpj == other.cpf_cnpj
+				&& Objects.equals(email, other.email) && Objects.equals(end_bairro, other.end_bairro)
+				&& end_cep == other.end_cep && Objects.equals(end_cidade, other.end_cidade)
+				&& Objects.equals(end_complemento, other.end_complemento)
+				&& Objects.equals(end_logradouro, other.end_logradouro) && end_num == other.end_num
+				&& Objects.equals(end_uf, other.end_uf) && id_cliente == other.id_cliente
+				&& Objects.equals(nome_cliente, other.nome_cliente) && Objects.equals(pedido, other.pedido)
+				&& tel == other.tel && Objects.equals(tipo_cliente, other.tipo_cliente);
 	}
 }

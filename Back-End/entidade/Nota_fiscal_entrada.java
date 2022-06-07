@@ -3,12 +3,16 @@ package br.com.ibiagas.models;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Nota_fiscal_entrada implements Serializable {
@@ -19,16 +23,37 @@ public class Nota_fiscal_entrada implements Serializable {
 	private Fornecedor fornecedor;
 	
 	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@Column(nullable = false)
 	private int num_nfentrada;
 	
+	@Column(nullable = false)
+	@DateTimeFormat(pattern = "dd/M/yyyy")
 	private LocalDate emissao_nfentrada;
+	
+	@Column(nullable = false)
+	@DateTimeFormat(pattern = "dd/M/yyyy")
 	private LocalDate saida_nfentrada;
+	
+	@Column(nullable = false)
+	@DateTimeFormat(pattern = "dd/M/yyyy")
 	private LocalDate recebimento_nfentrada;
+	
+	@Column(nullable = false)
 	private int qtd_nfentrada;
+	
+	@Column(nullable = false)
 	private int vol_nfentrada;
+	
+	@Column(nullable = false)
+	@DateTimeFormat(pattern = "hh:mm:ss")
 	private LocalTime hr_saida_nfentrada;
+	
+	@Column(nullable = false)
+	@DateTimeFormat(pattern = "hh:mm:ss")
 	private LocalTime hr_recebimento_nfentrada;
+	
+	@Column(nullable = false)
 	private int cod_fornecedor;
 	
 	//Getters and Setters
@@ -92,5 +117,27 @@ public class Nota_fiscal_entrada implements Serializable {
 	}
 	public void setCod_fornecedor(int cod_fornecedor) {
 		this.cod_fornecedor = cod_fornecedor;
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(cod_fornecedor, emissao_nfentrada, fornecedor, hr_recebimento_nfentrada, hr_saida_nfentrada,
+				num_nfentrada, qtd_nfentrada, recebimento_nfentrada, saida_nfentrada, vol_nfentrada);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Nota_fiscal_entrada other = (Nota_fiscal_entrada) obj;
+		return cod_fornecedor == other.cod_fornecedor && Objects.equals(emissao_nfentrada, other.emissao_nfentrada)
+				&& Objects.equals(fornecedor, other.fornecedor)
+				&& Objects.equals(hr_recebimento_nfentrada, other.hr_recebimento_nfentrada)
+				&& Objects.equals(hr_saida_nfentrada, other.hr_saida_nfentrada) && num_nfentrada == other.num_nfentrada
+				&& qtd_nfentrada == other.qtd_nfentrada
+				&& Objects.equals(recebimento_nfentrada, other.recebimento_nfentrada)
+				&& Objects.equals(saida_nfentrada, other.saida_nfentrada) && vol_nfentrada == other.vol_nfentrada;
 	}
 }

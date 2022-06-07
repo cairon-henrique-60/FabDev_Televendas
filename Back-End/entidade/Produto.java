@@ -1,7 +1,9 @@
 package br.com.ibiagas.models;
 
 import java.io.Serializable;
+import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,11 +28,17 @@ public class Produto implements Serializable{
 	private Item_nota_fiscal_entrada item_nota_fiscal_entrada;
 	
 	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@Column(nullable = false)
 	private int cod_produto;
 	
+	@Column(length = 30, nullable = false)
 	private String nome_produto;
+	
+	@Column(nullable = false)
 	private int cod_preco_custo;
+	
+	@Column(nullable = false)
 	private int cod_preco_venda;
 	
 	//Getters and Setters
@@ -89,4 +97,28 @@ public class Produto implements Serializable{
 	public void setItem_nota_fiscal_entrada(Item_nota_fiscal_entrada item_nota_fiscal_entrada) {
 		this.item_nota_fiscal_entrada = item_nota_fiscal_entrada;
 	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(cod_preco_custo, cod_preco_venda, cod_produto, item_nota_fiscal_entrada, item_pedido,
+				movimentacao_material, nome_produto, preco_custo, preco_venda);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Produto other = (Produto) obj;
+		return cod_preco_custo == other.cod_preco_custo && cod_preco_venda == other.cod_preco_venda
+				&& cod_produto == other.cod_produto
+				&& Objects.equals(item_nota_fiscal_entrada, other.item_nota_fiscal_entrada)
+				&& Objects.equals(item_pedido, other.item_pedido)
+				&& Objects.equals(movimentacao_material, other.movimentacao_material)
+				&& Objects.equals(nome_produto, other.nome_produto) && Objects.equals(preco_custo, other.preco_custo)
+				&& Objects.equals(preco_venda, other.preco_venda);
+	}
+	
 }
