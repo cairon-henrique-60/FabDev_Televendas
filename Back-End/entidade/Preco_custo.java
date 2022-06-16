@@ -8,14 +8,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Preco_custo implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	@OneToMany
+	@ManyToOne
 	private Produto produto;
 	
 	@Id
@@ -23,7 +24,7 @@ public class Preco_custo implements Serializable{
 	@Column(nullable = false)
 	private int cod_preco_custo;
 	
-	@Column(nullable = false)
+	@JoinColumn(nullable = false)
 	private int cod_produto;
 	
 	@Column(nullable = false)

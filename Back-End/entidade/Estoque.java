@@ -9,7 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -18,7 +19,7 @@ public class Estoque implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
-	@OneToOne
+	@ManyToOne //Many To Any!!
 	private Produto produto;
 	
 	@Id
@@ -26,7 +27,7 @@ public class Estoque implements Serializable {
 	@Column(nullable = false)
 	private int cod_estoque;
 	
-	@Column(nullable = false)
+	@JoinColumn(nullable = false)
 	private int cod_produto;
 	
 	@Column(nullable = false)

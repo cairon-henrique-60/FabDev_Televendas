@@ -8,15 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Tipo_cliente implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
-	
-	@OneToMany
-	private Cliente cliente;
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -34,12 +30,6 @@ public class Tipo_cliente implements Serializable{
 	public void setCod_tipo_cliente(int cod_tipo_cliente) {
 		this.cod_tipo_cliente = cod_tipo_cliente;
 	}
-	public Cliente getCliente() {
-		return cliente;
-	}
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
 	public String getDesc_tipo_pessoa() {
 		return desc_tipo_pessoa;
 	}
@@ -49,7 +39,7 @@ public class Tipo_cliente implements Serializable{
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(cliente, cod_tipo_cliente, desc_tipo_pessoa);
+		return Objects.hash(cod_tipo_cliente, desc_tipo_pessoa);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -60,7 +50,7 @@ public class Tipo_cliente implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Tipo_cliente other = (Tipo_cliente) obj;
-		return Objects.equals(cliente, other.cliente) && cod_tipo_cliente == other.cod_tipo_cliente
+		return cod_tipo_cliente == other.cod_tipo_cliente
 				&& Objects.equals(desc_tipo_pessoa, other.desc_tipo_pessoa);
 	}
 }

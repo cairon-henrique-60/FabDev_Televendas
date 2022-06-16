@@ -5,14 +5,15 @@ import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Item_pedido {
 
-	@OneToOne	
+	@ManyToOne
 	private Pedido pedido;
-	@OneToOne
+	@ManyToOne
 	private Produto produto;
 	
 	@Id
@@ -25,10 +26,10 @@ public class Item_pedido {
 	@Column(nullable = false)
 	private float preco_venda;	
 	
-	@Column(nullable = false)
+	@JoinColumn(nullable = false)
 	private int cod_pedido;	
 	
-	@Column(nullable = false)
+	@JoinColumn(nullable = false)
 	private int cod_produto;
 	
 	//Getters and Setters

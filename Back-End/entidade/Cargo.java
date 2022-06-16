@@ -8,15 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Cargo implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-	
-	@OneToMany
-	private Funcionarios funcionarios;
 	
 	@Id
     @Column(nullable = false)
@@ -34,12 +30,6 @@ public class Cargo implements Serializable {
 	public void setCod_cargo(int cod_cargo) {
 		this.cod_cargo = cod_cargo;
 	}
-	public Funcionarios getFuncionarios() {
-		return funcionarios;
-	}
-	public void setFuncionarios(Funcionarios funcionarios) {
-		this.funcionarios = funcionarios;
-	}
 	public String getNome_cargo() {
 		return nome_cargo;
 	}
@@ -49,7 +39,7 @@ public class Cargo implements Serializable {
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(funcionarios, nome_cargo);
+		return Objects.hash(nome_cargo);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -60,6 +50,6 @@ public class Cargo implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Cargo other = (Cargo) obj;
-		return Objects.equals(funcionarios, other.funcionarios) && Objects.equals(nome_cargo, other.nome_cargo);
+		return Objects.equals(nome_cargo, other.nome_cargo);
 	}
 }

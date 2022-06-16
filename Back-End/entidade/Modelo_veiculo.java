@@ -8,15 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Modelo_veiculo implements Serializable{
 	
 	private static final long serialVersionUID = 1l;
-	
-	@OneToMany
-	private Veiculo veiculo;
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -31,12 +27,6 @@ public class Modelo_veiculo implements Serializable{
 	
 	//Getters and Setters
 	
-	public Veiculo getVeiculo() {
-		return veiculo;
-	}
-	public void setVeiculo(Veiculo veiculo) {
-		this.veiculo = veiculo;
-	}
 	public int getCod_mod_veiculo() {
 		return cod_mod_veiculo;
 	}
@@ -57,7 +47,7 @@ public class Modelo_veiculo implements Serializable{
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(cap_veiculo, cod_mod_veiculo, tipo_veiculo, veiculo);
+		return Objects.hash(cap_veiculo, cod_mod_veiculo, tipo_veiculo);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -69,6 +59,6 @@ public class Modelo_veiculo implements Serializable{
 			return false;
 		Modelo_veiculo other = (Modelo_veiculo) obj;
 		return cap_veiculo == other.cap_veiculo && cod_mod_veiculo == other.cod_mod_veiculo
-				&& Objects.equals(tipo_veiculo, other.tipo_veiculo) && Objects.equals(veiculo, other.veiculo);
+				&& Objects.equals(tipo_veiculo, other.tipo_veiculo);
 	}
 }

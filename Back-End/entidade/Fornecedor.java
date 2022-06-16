@@ -8,18 +8,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Fornecedor implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	@OneToOne
+	@ManyToOne
 	private Tipo_fornecedor tipo_fornecedor;
-	@OneToMany
-	private Nota_fiscal_entrada nota_fiscal_entrada;
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -41,7 +39,7 @@ public class Fornecedor implements Serializable{
 	@Column(nullable = false)
 	private int end_cep;
 	
-	@Column(nullable = false)
+	@JoinColumn(nullable = false)
 	private int cod_tipo_fornecedor;
 	
 	@Column(nullable = false)
@@ -103,17 +101,11 @@ public class Fornecedor implements Serializable{
 	public void setTipo_fornecedor(Tipo_fornecedor tipo_fornecedor) {
 		this.tipo_fornecedor = tipo_fornecedor;
 	}
-	public Nota_fiscal_entrada getNota_fiscal_entrada() {
-		return nota_fiscal_entrada;
-	}
-	public void setNota_fiscal_entrada(Nota_fiscal_entrada nota_fiscal_entrada) {
-		this.nota_fiscal_entrada = nota_fiscal_entrada;
-	}
 	
 	@Override
 	public int hashCode() {
 		return Objects.hash(cod_fornecedor, cod_tipo_fornecedor, cpf_cnpj, end_cep, end_cidade, end_logradouro, end_uf,
-				nome_fornecedor, nota_fiscal_entrada, tipo_fornecedor);
+				nome_fornecedor, tipo_fornecedor);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -128,7 +120,6 @@ public class Fornecedor implements Serializable{
 				&& cpf_cnpj == other.cpf_cnpj && end_cep == other.end_cep
 				&& Objects.equals(end_cidade, other.end_cidade) && Objects.equals(end_logradouro, other.end_logradouro)
 				&& Objects.equals(end_uf, other.end_uf) && Objects.equals(nome_fornecedor, other.nome_fornecedor)
-				&& Objects.equals(nota_fiscal_entrada, other.nota_fiscal_entrada)
 				&& Objects.equals(tipo_fornecedor, other.tipo_fornecedor);
 	}
 }

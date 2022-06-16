@@ -8,15 +8,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Item_nota_fiscal_entrada implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 
-	@OneToOne
+	@ManyToOne
 	private Produto produto;
+	@ManyToOne
+	private Nota_fiscal_entrada nota_fiscal_entrada;
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -26,10 +29,10 @@ public class Item_nota_fiscal_entrada implements Serializable{
 	@Column(nullable = false)
 	private float Valor_unitario;
 	
-	@Column(nullable = false)
+	@JoinColumn(nullable = false)
 	private int cod_produto;
 	
-	@Column(nullable = false)
+	@JoinColumn(nullable = false)
 	private int num_nfentrada;
 	
 	//Getters and Setters
@@ -64,10 +67,16 @@ public class Item_nota_fiscal_entrada implements Serializable{
 	public void setNum_nfentrada(int num_nfentrada) {
 		this.num_nfentrada = num_nfentrada;
 	}
+	public Nota_fiscal_entrada getNota_fiscal_entrada() {
+		return nota_fiscal_entrada;
+	}
+	public void setNota_fiscal_entrada(Nota_fiscal_entrada nota_fiscal_entrada) {
+		this.nota_fiscal_entrada = nota_fiscal_entrada;
+	}
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(Valor_unitario, cod_itens_nf_ent, cod_produto, num_nfentrada, produto);
+		return Objects.hash(Valor_unitario, cod_itens_nf_ent, cod_produto, nota_fiscal_entrada, num_nfentrada, produto);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -80,6 +89,7 @@ public class Item_nota_fiscal_entrada implements Serializable{
 		Item_nota_fiscal_entrada other = (Item_nota_fiscal_entrada) obj;
 		return Float.floatToIntBits(Valor_unitario) == Float.floatToIntBits(other.Valor_unitario)
 				&& cod_itens_nf_ent == other.cod_itens_nf_ent && cod_produto == other.cod_produto
+				&& Objects.equals(nota_fiscal_entrada, other.nota_fiscal_entrada)
 				&& num_nfentrada == other.num_nfentrada && Objects.equals(produto, other.produto);
 	} 
 	

@@ -5,13 +5,9 @@ import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Formas_pagamento {
-	
-	@OneToMany
-	private Pedido pedido;
 	
 	@Id
 	@Column(nullable = false)
@@ -22,12 +18,6 @@ public class Formas_pagamento {
 	
 	//Getters and Setters
 	
-	public Pedido getPedido() {
-		return pedido;
-	}
-	public void setPedido(Pedido pedido) {
-		this.pedido = pedido;
-	}
 	public int getCod_pagamento() {
 		return cod_pagamento;
 	}
@@ -43,7 +33,7 @@ public class Formas_pagamento {
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(cod_pagamento, forma_pagamento, pedido);
+		return Objects.hash(cod_pagamento, forma_pagamento);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -54,7 +44,6 @@ public class Formas_pagamento {
 		if (getClass() != obj.getClass())
 			return false;
 		Formas_pagamento other = (Formas_pagamento) obj;
-		return cod_pagamento == other.cod_pagamento && Objects.equals(forma_pagamento, other.forma_pagamento)
-				&& Objects.equals(pedido, other.pedido);
+		return cod_pagamento == other.cod_pagamento && Objects.equals(forma_pagamento, other.forma_pagamento);
 	}
 }

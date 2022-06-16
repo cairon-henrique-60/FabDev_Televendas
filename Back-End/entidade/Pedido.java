@@ -8,21 +8,21 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Pedido implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	@OneToOne
+	@ManyToOne
 	private Cliente cliente;
-	@OneToMany
+	@ManyToOne
 	private Item_pedido item_pedido;
-	@OneToOne
+	@ManyToOne
 	private Formas_pagamento formas_pagamento;
-	@OneToOne
+	@ManyToOne
 	private Caixa_urna caixa_urna;
 	
 	@Id
@@ -33,16 +33,16 @@ public class Pedido implements Serializable{
 	@Column(nullable = false)
 	private int num_pedido; 
 	
-	@Column(nullable = false)
+	@JoinColumn(nullable = false)
 	private int id_cliente; 
 	
-	@Column(nullable = false)
+	@JoinColumn(nullable = false)
 	private int cod_urna; 
 	
-	@Column(nullable = false)
+	@JoinColumn(nullable = false)
 	private int cod_pagamento; 
 	
-	@Column(nullable = false)
+	@JoinColumn(nullable = false)
 	private int cod_func;
 	
 	//Getters and Setters

@@ -8,20 +8,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Veiculo_entregador implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	@OneToOne
+	@ManyToOne
 	private Veiculo veiculo;
-	@OneToOne
+	@ManyToOne
 	private Funcionarios funcionarios;
-	@OneToMany
-	private Movimentacao_material movimentacao_material;
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -31,10 +29,10 @@ public class Veiculo_entregador implements Serializable{
 	@Column(nullable = false)
 	private int saldo_estoque;
 	
-	@Column(nullable = false)
+	@JoinColumn(nullable = false)
 	private int cod_veiculo;
 	
-	@Column(nullable = false)
+	@JoinColumn(nullable = false)
 	private int cod_func;
 	
 	//Getters and Setters 
@@ -50,12 +48,6 @@ public class Veiculo_entregador implements Serializable{
 	}
 	public void setFuncionarios(Funcionarios funcionarios) {
 		this.funcionarios = funcionarios;
-	}
-	public Movimentacao_material getMovimentacao_material() {
-		return movimentacao_material;
-	}
-	public void setMovimentacao_material(Movimentacao_material movimentacao_material) {
-		this.movimentacao_material = movimentacao_material;
 	}
 	public int getCod_veiculo_entregador() {
 		return cod_veiculo_entregador;
@@ -84,7 +76,7 @@ public class Veiculo_entregador implements Serializable{
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(cod_func, cod_veiculo, cod_veiculo_entregador, funcionarios, movimentacao_material,
+		return Objects.hash(cod_func, cod_veiculo, cod_veiculo_entregador, funcionarios,
 				saldo_estoque, veiculo);
 	}
 	@Override
@@ -99,7 +91,6 @@ public class Veiculo_entregador implements Serializable{
 		return cod_func == other.cod_func && cod_veiculo == other.cod_veiculo
 				&& cod_veiculo_entregador == other.cod_veiculo_entregador
 				&& Objects.equals(funcionarios, other.funcionarios)
-				&& Objects.equals(movimentacao_material, other.movimentacao_material)
 				&& saldo_estoque == other.saldo_estoque && Objects.equals(veiculo, other.veiculo);
 	}
 }

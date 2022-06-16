@@ -5,16 +5,14 @@ import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Cliente {
 	
-	@OneToOne
+	@ManyToOne
 	private Tipo_cliente tipo_cliente;
-	@OneToMany
-	private Pedido pedido;
 	
 	@Id
 	@Column(nullable = false)
@@ -50,7 +48,7 @@ public class Cliente {
 	@Column(length = 80)
 	private String email;
 	
-	@Column(nullable = false)
+	@JoinColumn(nullable = false)
 	private int cod_tipo_cliente;
 	
 	@Column(nullable = false)
@@ -60,12 +58,6 @@ public class Cliente {
 	
 	public Tipo_cliente getTipo_cliente() {
 		return tipo_cliente;
-	}
-	public Pedido getPedido() {
-		return pedido;
-	}
-	public void setPedido(Pedido pedido) {
-		this.pedido = pedido;
 	}
 	public void setTipo_cliente(Tipo_cliente tipo_cliente) {
 		this.tipo_cliente = tipo_cliente;
@@ -152,7 +144,7 @@ public class Cliente {
 	@Override
 	public int hashCode() {
 		return Objects.hash(cod_tipo_cliente, cpf_cnpj, email, end_bairro, end_cep, end_cidade, end_complemento,
-				end_logradouro, end_num, end_uf, id_cliente, nome_cliente, pedido, tel, tipo_cliente);
+				end_logradouro, end_num, end_uf, id_cliente, nome_cliente, tel, tipo_cliente);
 	}
 	
 	@Override
@@ -170,7 +162,7 @@ public class Cliente {
 				&& Objects.equals(end_complemento, other.end_complemento)
 				&& Objects.equals(end_logradouro, other.end_logradouro) && end_num == other.end_num
 				&& Objects.equals(end_uf, other.end_uf) && id_cliente == other.id_cliente
-				&& Objects.equals(nome_cliente, other.nome_cliente) && Objects.equals(pedido, other.pedido)
+				&& Objects.equals(nome_cliente, other.nome_cliente)
 				&& tel == other.tel && Objects.equals(tipo_cliente, other.tipo_cliente);
 	}
 }

@@ -9,8 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -19,13 +19,11 @@ public class Funcionarios implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	@OneToOne
+	@ManyToOne
 	private Departamento departamento;
-	@OneToOne
+	@ManyToOne
 	private Cargo cargo;
-	@OneToMany
-	private Veiculo_entregador veiculo_entregador;
-	@OneToOne
+	@ManyToOne
 	private Caixa_urna caixa_urna;
 	
 	@Id
@@ -67,13 +65,13 @@ public class Funcionarios implements Serializable {
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private LocalDate val_cnh;
 	
-	@Column(nullable = false)
+	@JoinColumn(nullable = false)
 	private int cod_cargo;
 	
-	@Column(nullable = false)
+	@JoinColumn(nullable = false)
 	private int cod_depto;
 	
-	@Column(nullable = false)
+	@JoinColumn(nullable = false)
 	private int cod_urna;
 	
 	// Getters and Setters
@@ -180,12 +178,6 @@ public class Funcionarios implements Serializable {
 	public void setCargo(Cargo cargo) {
 		this.cargo = cargo;
 	}
-	public Veiculo_entregador getVeiculo_entregador() {
-		return veiculo_entregador;
-	}
-	public void setVeiculo_entregador(Veiculo_entregador veiculo_entregador) {
-		this.veiculo_entregador = veiculo_entregador;
-	}
 	public Caixa_urna getCaixa_urna() {
 		return caixa_urna;
 	}
@@ -195,8 +187,7 @@ public class Funcionarios implements Serializable {
 	@Override
 	public int hashCode() {
 		return Objects.hash(bairro_func, caixa_urna, cargo, cel_func, cod_cargo, cod_depto, cod_func, cod_urna,
-				cpf_func, departamento, email_func, end_func, nome_fun, num_cnh, num_func, tel_func, tipo_cnh, val_cnh,
-				veiculo_entregador);
+				cpf_func, departamento, email_func, end_func, nome_fun, num_cnh, num_func, tel_func, tipo_cnh, val_cnh);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -214,8 +205,7 @@ public class Funcionarios implements Serializable {
 				&& Objects.equals(email_func, other.email_func) && Objects.equals(end_func, other.end_func)
 				&& Objects.equals(nome_fun, other.nome_fun) && num_cnh == other.num_cnh && num_func == other.num_func
 				&& tel_func == other.tel_func && Objects.equals(tipo_cnh, other.tipo_cnh)
-				&& Objects.equals(val_cnh, other.val_cnh)
-				&& Objects.equals(veiculo_entregador, other.veiculo_entregador);
+				&& Objects.equals(val_cnh, other.val_cnh);
 	}
 	
 }

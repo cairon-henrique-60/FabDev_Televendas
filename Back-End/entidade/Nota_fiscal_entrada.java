@@ -10,7 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -19,7 +20,7 @@ public class Nota_fiscal_entrada implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-	@OneToOne
+	@ManyToOne
 	private Fornecedor fornecedor;
 	
 	@Id
@@ -53,7 +54,7 @@ public class Nota_fiscal_entrada implements Serializable {
 	@DateTimeFormat(pattern = "hh:mm:ss")
 	private LocalTime hr_recebimento_nfentrada;
 	
-	@Column(nullable = false)
+	@JoinColumn(nullable = false)
 	private int cod_fornecedor;
 	
 	//Getters and Setters

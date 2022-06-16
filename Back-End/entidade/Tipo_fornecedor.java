@@ -8,15 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Tipo_fornecedor implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	
-	@OneToMany
-	private Fornecedor fornecedor;
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -28,12 +24,6 @@ public class Tipo_fornecedor implements Serializable{
 
 	//Getters and Setters
 	
-	public Fornecedor getFornecedor() {
-		return fornecedor;
-	}
-	public void setFornecedor(Fornecedor fornecedor) {
-		this.fornecedor = fornecedor;
-	}
 	public int getCod_tipo_fornecedor() {
 		return cod_tipo_fornecedor;
 	}
@@ -49,7 +39,7 @@ public class Tipo_fornecedor implements Serializable{
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(cod_tipo_fornecedor, desc_tipo_pessoa, fornecedor);
+		return Objects.hash(cod_tipo_fornecedor, desc_tipo_pessoa);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -61,7 +51,6 @@ public class Tipo_fornecedor implements Serializable{
 			return false;
 		Tipo_fornecedor other = (Tipo_fornecedor) obj;
 		return cod_tipo_fornecedor == other.cod_tipo_fornecedor
-				&& Objects.equals(desc_tipo_pessoa, other.desc_tipo_pessoa)
-				&& Objects.equals(fornecedor, other.fornecedor);
+				&& Objects.equals(desc_tipo_pessoa, other.desc_tipo_pessoa);
 	}
 }

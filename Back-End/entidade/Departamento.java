@@ -8,15 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Departamento implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
-	
-	@OneToMany
-	private Funcionarios funcionarios;
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -28,12 +24,6 @@ public class Departamento implements Serializable{
 	
 	// Getters and Setters
 
-	public Funcionarios getFuncionarios() {
-		return funcionarios;
-	}
-	public void setFuncionarios(Funcionarios funcionarios) {
-		this.funcionarios = funcionarios;
-	}
 	public int getCod_depto() {
 		return cod_depto;
 	}
@@ -49,7 +39,7 @@ public class Departamento implements Serializable{
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(funcionarios, nome_depto);
+		return Objects.hash(nome_depto);
 	}
 	
 	@Override
@@ -61,6 +51,6 @@ public class Departamento implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Departamento other = (Departamento) obj;
-		return Objects.equals(funcionarios, other.funcionarios) && Objects.equals(nome_depto, other.nome_depto);
+		return Objects.equals(nome_depto, other.nome_depto);
 	}
 }

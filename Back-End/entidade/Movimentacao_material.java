@@ -10,7 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -19,9 +20,9 @@ public class Movimentacao_material implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	@OneToOne
+	@ManyToOne
 	private Produto produto;
-	@OneToOne
+	@ManyToOne
 	private Veiculo_entregador veiculo_entregador;
 	
 	@Id
@@ -43,10 +44,10 @@ public class Movimentacao_material implements Serializable{
 	@Column(length = 1)
 	private String tipo_movimentacao;
 	
-	@Column(nullable = false)
+	@JoinColumn(nullable = false)
 	private int cod_produto;
 	
-	@Column(nullable = false)
+	@JoinColumn(nullable = false)
 	private int cod_veiculo_entregador;
 	
 	//Getters and Setters

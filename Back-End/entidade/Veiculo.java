@@ -9,8 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -19,9 +19,7 @@ public class Veiculo implements Serializable{
 	
 	private static final long serialVersionUID = 1l;
 	
-	@OneToMany
-	private Veiculo_entregador veiculo_entregador;
-	@OneToOne
+	@ManyToOne
 	private Modelo_veiculo modelo_veiculo; 
 	
 	@Id
@@ -36,17 +34,11 @@ public class Veiculo implements Serializable{
 	@DateTimeFormat(pattern = "yyyy")
 	private LocalDate ano_veiculo;
 	
-	@Column(nullable = false)
+	@JoinColumn(nullable = false)
 	private int cod_mod_veiculo;
 	
 	//Getters and Setters
 	
-	public Veiculo_entregador getVeiculo_entregador() {
-		return veiculo_entregador;
-	}
-	public void setVeiculo_entregador(Veiculo_entregador veiculo_entregador) {
-		this.veiculo_entregador = veiculo_entregador;
-	}
 	public Modelo_veiculo getModelo_veiculo() {
 		return modelo_veiculo;
 	}
@@ -80,8 +72,7 @@ public class Veiculo implements Serializable{
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(ano_veiculo, cod_mod_veiculo, cod_veiculo, modelo_veiculo, nome_veiculo,
-				veiculo_entregador);
+		return Objects.hash(ano_veiculo, cod_mod_veiculo, cod_veiculo, modelo_veiculo, nome_veiculo);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -94,7 +85,6 @@ public class Veiculo implements Serializable{
 		Veiculo other = (Veiculo) obj;
 		return Objects.equals(ano_veiculo, other.ano_veiculo) && cod_mod_veiculo == other.cod_mod_veiculo
 				&& cod_veiculo == other.cod_veiculo && Objects.equals(modelo_veiculo, other.modelo_veiculo)
-				&& Objects.equals(nome_veiculo, other.nome_veiculo)
-				&& Objects.equals(veiculo_entregador, other.veiculo_entregador);
+				&& Objects.equals(nome_veiculo, other.nome_veiculo);
 	}
 }

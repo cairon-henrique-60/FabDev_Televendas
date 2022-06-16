@@ -6,21 +6,22 @@ import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Preco_venda {
 	
-	@OneToMany
+	@ManyToOne
 	private Produto produto;
 	
 	@Id
 	@Column(nullable = false)
 	private int cod_preco_venda;
 	
-	@Column(nullable = false)
+	@JoinColumn(nullable = false)
 	private int cod_produto;
 	
 	@Column(nullable = false)
